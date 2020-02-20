@@ -67,7 +67,7 @@ const Products = (props) => {
                                         title={<a href={product.links.web} style={classes.tileTitle} target="_blank">{product.names.title}</a>}
                                         subtitle={<span>$ {product.prices.current}</span>}
                                         actionIcon={
-                                            <AddToCart item={product} />
+                                            <AddToCart item={{sku:product.sku,name:product.names.title,link:product.links.web,image:product.images.standard,price:product.prices.current, quantity:1}} currUser={props.currUser} setCurrUser={props.setCurrUser}/>
                                         }
                                     />
                                 </GridListTile>
@@ -78,7 +78,7 @@ const Products = (props) => {
                                         title={<a href={product.mobileUrl} style={classes.tileTitle} target="_blank">{product.name}</a>}
                                         subtitle={<span>$ {product.salePrice}</span>}
                                         actionIcon={
-                                            <AddToCart item={product} />
+                                            <AddToCart item={{sku:product.sku,name:product.name,link:product.mobileUrl,image:product.image,price:product.salePrice, quantity:1}} currUser={props.currUser} setCurrUser={props.setCurrUser}/>
                                         }
                                     />
                                 </GridListTile>

@@ -11,7 +11,7 @@ import Products from "../Products";
 import axios from "axios";
 
 
-const Search = (props) => {
+const Search = ({categories,currUser, setCurrUser}) => {
     const theme = createMuiTheme();
     const classes = {
         card: {
@@ -117,7 +117,7 @@ const Search = (props) => {
                     <MenuItem value="All">
                         All
                     </MenuItem>
-                    {props.categories.map(option => (
+                    {categories.map(option => (
                         <MenuItem key={option.id} value={option.id}>
                             {option.name}
                         </MenuItem>
@@ -136,7 +136,7 @@ const Search = (props) => {
                     <SearchIcon />
                 </Button>
                 <Divider />
-                <Products type = {state.type} products={state.results} searched={state.searched} />
+                <Products type = {state.type} products={state.results} searched={state.searched} currUser={currUser} setCurrUser={setCurrUser} />
             </Card>
         </div>
 

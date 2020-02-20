@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import queryString from 'query-string'
 import History from "../components/History";
 
-const Home = withRouter(({ history }) => {
+const Home = withRouter(({ history, currUser, setCurrUser}) => {
     const classes = {
         root: {
             flexGrow: 1,
@@ -48,11 +48,11 @@ const Home = withRouter(({ history }) => {
         <div className={classes.root}>
             <Grid container spacing={24}>
                 <Grid item xs={8} sm={8}>
-                    <Search categories={state.categories} />
-                    {history.location.pathname.includes("/user") && <History items={state.histories}/>}
+                    <Search categories={state.categories} currUser={currUser} setCurrUser={setCurrUser} />
+                    {/* {history.location.pathname.includes("/user") && <History items={state.histories}/>} */}
                 </Grid>
                 <Grid item xs={4} sm={4}>
-                    <PopularList products={state.suggestions} title={state.suggestionTitle} />
+                    <PopularList products={state.suggestions} title={state.suggestionTitle} currUser={currUser} setCurrUser={setCurrUser}/>
                 </Grid>
             </Grid>
         </div>

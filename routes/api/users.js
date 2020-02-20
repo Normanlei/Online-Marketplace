@@ -32,4 +32,18 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).send(err));
 });
 
+router.route("/update/:id").put((req, res) => {
+  db.User.findByIdAndUpdate(
+    {_id: req.params.id},
+    req.body,
+    function(err, result) {
+      if (err) {
+        res.status(404).send({ success: false, message: "No user found" });
+      } else {
+        res.json(result);
+      }
+    }
+  )
+});
+
 module.exports = router;

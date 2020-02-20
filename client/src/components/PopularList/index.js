@@ -101,7 +101,7 @@ const PopList = (props) => {
                                 <div style={classes.controls}>
                                     <Typography type="subheading" component="h3" style={classes.price} color="primary">$ {item.prices.current}</Typography>
                                     <span style={classes.actions}>
-                                        <AddToCart item={item} />
+                                        <AddToCart item={{sku:item.sku,name:item.names.title,link:item.links.web,image:item.images.standard,price:item.prices.current, quantity:1}} currUser={props.currUser} setCurrUser={props.setCurrUser} />
                                     </span>
                                 </div>
                             </div>
