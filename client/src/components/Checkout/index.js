@@ -77,7 +77,8 @@ const Checkout = withRouter(({ history, currUser, setCurrUser }) => {
     axios.put(`../api/users/update/${currUser.id}`, updateObj)
       .then(result => {
         console.log(result);
-        setCurrUser({ ...currUser, updateObj })
+        setCurrUser({ ...currUser, updateObj });
+        window.location.reload();
       })
   }
 
